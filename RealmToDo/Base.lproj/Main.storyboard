@@ -74,11 +74,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="7bC-4x-2KV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="HU6-md-osl">
-                            <connections>
-                                <action selector="editButtonPressed:" destination="BYZ-38-t0r" id="28T-IX-cgA"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NMu-ba-6Cu">
                             <connections>
                                 <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="9Ic-Qi-fvm"/>

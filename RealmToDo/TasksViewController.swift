@@ -12,9 +12,10 @@ import RealmSwift
 class TasksViewController: UITableViewController {
     
     var currentList:TaskList?
-    var currentTasks:Results<Task>?
-    var competedTask:Results<Task>?
-
+    private var currentTasks:Results<Task>?
+    private var competedTask:Results<Task>?
+    private var isEditingMode: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = currentList?.name
@@ -42,12 +43,38 @@ class TasksViewController: UITableViewController {
         cell.detailTextLabel?.text = task?.note
         return cell
     }
+    
+    // MARK: - Table view delegate
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let selectedTask = indexPath.section == 0 ? currentTasks?[indexPath.row]: competedTask?[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Dlete") { _, _, _ in
+            if let task = selectedTask{
+                DataManager.shared.delete(task: task)
+                self.sortingTasks()
+            }
+        }
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, _ in
+            self.showALert(with: selectedTask)
+        }
+        let doneAction = UIContextualAction(style: .normal, title: "Done") { _, _, _ in
+            if let task = selectedTask{
+                DataManager.shared.done(task: task)
+                self.sortingTasks()
+            }
+        }
+        editAction.backgroundColor = .orange
+        doneAction.backgroundColor = .green
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction, doneAction])
+    }
+    
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         showALert()
     }
     
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        isEditingMode.toggle()
+        tableView.setEditing(isEditingMode, animated: true)
     }
     
     private func sortingTasks () {
@@ -58,9 +85,21 @@ class TasksViewController: UITableViewController {
 }
 
 extension TasksViewController {
-    private func showALert() {
+    private func showALert(with task: Task? = nil) {
         let alert = AlertController(title: "New List", message: "Please insert new value", preferredStyle: .alert)
-        alert.actionWIthTaskList { newValue in
+        alert.actionWithTask(for: task) { [weak self] newValue, note in
+            guard let self = self else {return}
+            if let task = task {
+                DataManager.shared.edit(task: task, with: newValue, and: note)
+                self.sortingTasks()
+            } else {
+                let task = Task()
+                task.name = newValue
+                task.note = note
+                guard let taskList = self.currentList else {return}
+                DataManager.shared.saveTask(task: task, tasklist: taskList)
+                self.sortingTasks()
+            }
         }
         present(alert, animated: true)
     }

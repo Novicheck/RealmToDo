@@ -19,6 +19,7 @@
 		92872DC8241E65F8001F2AD2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92872DC7241E65F8001F2AD2 /* Task.swift */; };
 		92872DCA241E665B001F2AD2 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92872DC9241E665B001F2AD2 /* TaskList.swift */; };
 		92872DCC241E6682001F2AD2 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92872DCB241E6682001F2AD2 /* DataManager.swift */; };
+		928C1F8F2422545D006A702A /* Extension + UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C1F8E2422545D006A702A /* Extension + UITableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		92872DC7241E65F8001F2AD2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		92872DC9241E665B001F2AD2 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		92872DCB241E6682001F2AD2 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		928C1F8E2422545D006A702A /* Extension + UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableViewCell.swift"; sourceTree = "<group>"; };
 		CBB1249CBE1EB945042A3E01 /* Pods_RealmToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4686B8D102CC9D804A4CC86 /* Pods-RealmToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmToDo.debug.xcconfig"; path = "Target Support Files/Pods-RealmToDo/Pods-RealmToDo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				92872DB3241E5F9E001F2AD2 /* TaskListViewController.swift */,
 				92872DC3241E60AB001F2AD2 /* TasksViewController.swift */,
 				92872DC5241E6345001F2AD2 /* AlertController.swift */,
+				928C1F8E2422545D006A702A /* Extension + UITableViewCell.swift */,
 				92872DB5241E5F9E001F2AD2 /* Main.storyboard */,
 				92872DB8241E5FA1001F2AD2 /* Assets.xcassets */,
 				92872DBA241E5FA1001F2AD2 /* LaunchScreen.storyboard */,
@@ -227,6 +230,7 @@
 				92872DC6241E6345001F2AD2 /* AlertController.swift in Sources */,
 				92872DB0241E5F9E001F2AD2 /* AppDelegate.swift in Sources */,
 				92872DB2241E5F9E001F2AD2 /* SceneDelegate.swift in Sources */,
+				928C1F8F2422545D006A702A /* Extension + UITableViewCell.swift in Sources */,
 				92872DC8241E65F8001F2AD2 /* Task.swift in Sources */,
 				92872DC4241E60AB001F2AD2 /* TasksViewController.swift in Sources */,
 			);
